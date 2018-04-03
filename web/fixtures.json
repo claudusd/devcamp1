@@ -1,0 +1,14 @@
+{[
+    {
+        "year": 2018,
+        "region": "AUVERGNE-RHONE-ALPES",
+        "department": "AIN",
+        "insee": "01053",
+        "city": "BOURG-EN-BRESSE",
+        "people": 168,
+        "tax_av": 2245649,
+        "weatlh_avg": 8327,
+        lat: "46.2",
+        lon: "5.216667"
+    }
+]}
