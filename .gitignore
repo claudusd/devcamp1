@@ -6,3 +6,5 @@
 /var/cache
 /vendor/
 ###< symfony/framework-bundle ###
+
+/node_modules
