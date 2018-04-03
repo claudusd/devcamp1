@@ -18,4 +18,3 @@ CREATE TABLE IF NOT EXISTS position (
     lat VARCHAR(255),
     lon VARCHAR(255)
 );
-CREATE UNIQUE INDEX IF NOT EXISTS position_insee ON position (insee);
