@@ -28,7 +28,7 @@ class Import
         $dsn = sprintf('pgsql:host=%s;port=5432;dbname=%s;user=%s;password=%s', 'database', 'isf', 'isf', 'isf');
         $this->pdo = new \PDO($dsn);
 
-        var_dump($this->pdo->errorInfo());
+        $this->pdo->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION );
     }
 
     public function import($path, $year)
@@ -39,6 +39,7 @@ class Import
         $inserter = new ISFInsert($year, $this->pdo);
 
         $interpreter = new Interpreter();
+        $inserter->clear();
         $interpreter->addObserver($inserter);
 
         $this->lexer->parse($path, $interpreter);
