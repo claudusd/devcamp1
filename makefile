@@ -26,3 +26,6 @@ docker-pgdump: ## dump your database into sdtout (binary)
 
 docker-pgrestore: ## load data form sdtin
 	@docker exec -i isf_database pg_restore -U $(ISF_DB) -d $(ISF_DB) --clean -v
+
+schema-create: ## create database schema
+	@cat var/sql/schema.sql|docker exec -i isf_database psql -U $(ISF_DB) -d $(ISF_DB)
