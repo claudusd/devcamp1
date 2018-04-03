@@ -44,4 +44,18 @@ class Import
 
         $this->lexer->parse($path, $interpreter);
     }
+
+    public function importPosition($path)
+    {
+        if (!file_exists($path)) {
+            throw new \Exception(sprintf('File %s not exist', $path));
+        }
+        $inserter = new CommuneInserter($this->pdo);
+
+        $interpreter = new Interpreter();
+        $inserter->clear();
+        $interpreter->addObserver($inserter);
+
+        $this->lexer->parse($path, $interpreter);
+    }
 }
