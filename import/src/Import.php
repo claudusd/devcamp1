@@ -10,6 +10,8 @@ class Import
 {
     private $lexer;
 
+    private $pdo;
+
     public function __construct()
     {
         $config = new LexerConfig();
@@ -17,6 +19,8 @@ class Import
             ->setEnclosure('"');
 
         $this->lexer = new Lexer($config);
+        $this->pdo = new \PDO('pgsql:host=database;dbname=isf', 'isf', 'isf');
+
     }
 
     public function import($path)
@@ -29,6 +33,6 @@ class Import
 
     function __invoke($data)
     {
-        var_dump($data);
+
     }
 }
