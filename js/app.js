@@ -45,5 +45,5 @@ function displayData(year) {
     });
 }
 
-displayData(2018);
+displayData(2016);
 
