@@ -29,3 +29,6 @@ docker-pgrestore: ## load data form sdtin
 
 schema-create: ## create database schema
 	@cat var/sql/schema.sql|docker exec -i isf_database psql -U $(ISF_DB) -d $(ISF_DB)
+
+fixtures: schema-create ## create some fixtures
+	@cat var/sql/fixtures.sql|docker exec -i isf_database psql -U $(ISF_DB) -d $(ISF_DB)
