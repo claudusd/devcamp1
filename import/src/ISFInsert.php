@@ -30,7 +30,6 @@ class ISFInsert
         /**
          * INSERT INTO table ON CONFLICT (did) DO UPDATE
          */
-
         /**
          * 0 => Region
          * 1 => departement
@@ -40,19 +39,28 @@ class ISFInsert
          * 5 => Patrimoine Moyen
          * 6 => Import moyen
          */
-        /**
+
         $req = $this->pdo->prepare("
-          INSERT INTO users (login, password, email, infos, roles_id) 
-          VALUES (:login, :password, :email, :infos, '2')
-          CONFLICT (did) DO UPDATE
+          INSERT INTO isf (year, region, departement, insee, city, people, tax_avg, weatlh_avg) 
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ");
-        $req->execute(array(
-            "annee" => "",
-            "login" => ,
-            "password" => ,
-            "email" => ,
-            "infos" =>
-        ));
-         * **/
+
+//var_dump($req);
+
+        $a = $req->execute([
+            $this->year,
+            $data[0],
+            $data[1],
+            $data[2],
+            $data[3],
+            $data[4],
+            $data[5],
+            $data[6]
+        ]);
+
+        var_dump($a);
+
+        var_dump($this->pdo->errorInfo());
+
     }
 }

@@ -25,7 +25,10 @@ class Import
             ->setEnclosure('"');
 
         $this->lexer = new Lexer($config);
-        $this->pdo = new \PDO('pgsql:host=database;dbname=isf', 'isf', 'isf');
+        $dsn = sprintf('pgsql:host=%s;port=5432;dbname=%s;user=%s;password=%s', 'database', 'isf', 'isf', 'isf');
+        $this->pdo = new \PDO($dsn);
+
+        var_dump($this->pdo->errorInfo());
     }
 
     public function import($path, $year)
