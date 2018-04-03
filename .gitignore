@@ -2,6 +2,7 @@
 ###> symfony/framework-bundle ###
 /.env
 /public/bundles/
-/var/
+/var/log
+/var/cache
 /vendor/
 ###< symfony/framework-bundle ###
