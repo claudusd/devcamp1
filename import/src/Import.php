@@ -8,8 +8,14 @@ use Goodby\CSV\Import\Standard\LexerConfig;
 
 class Import
 {
+    /**
+     * @var Lexer
+     */
     private $lexer;
 
+    /**
+     * @var \PDO
+     */
     private $pdo;
 
     public function __construct()
@@ -20,19 +26,18 @@ class Import
 
         $this->lexer = new Lexer($config);
         $this->pdo = new \PDO('pgsql:host=database;dbname=isf', 'isf', 'isf');
-
     }
 
-    public function import($path)
+    public function import($path, $year)
     {
+        if (!file_exists($path)) {
+            throw new \Exception(sprintf('File %s not exist', $path));
+        }
+        $inserter = new ISFInsert($year, $this->pdo);
+
         $interpreter = new Interpreter();
-        $interpreter->addObserver($this);
+        $interpreter->addObserver($inserter);
 
         $this->lexer->parse($path, $interpreter);
-    }
-
-    function __invoke($data)
-    {
-
     }
 }

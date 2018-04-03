@@ -7,4 +7,10 @@ require_once(__DIR__.'/../vendor/autoload.php');
 set_time_limit(0);
 
 $import = new \ISF\Import();
-$import->import(__DIR__.'/../data/2016.csv');
+$path = sprintf('%s/../data/%s.csv', __DIR__, $argv[1]);
+try {
+    $import->import($path, $argv[1]);
+} catch (\Exception $e) {
+    var_dump($e->getMessage());
+    die(1);
+}
