@@ -4,7 +4,7 @@ Permet de remonter sur les années passées et voir l'évolution de l'ISF sur le
 
 ## Application
 
-![](https://screenshots.firefox.com/qZvf3wlfShCt078x/127.0.0.1)
+![](https://screenshots.firefox.com/ErccQRbJ5T9xwRhE/127.0.0.1)
 
 ## Outils
 
