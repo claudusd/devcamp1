@@ -1,0 +1,16 @@
+{
+  "name": "devcamp",
+  "version": "0.0.1",
+  "main": "js/app.ps",
+  "author": "clermont'ech",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13"
+  },
+  "dependencies": {
+    "leaflet": "^1.3.1",
+    "leaflet.markercluster": "^1.3.0",
+    "whatwg-fetch": "^2.0.4"
+  }
+}
