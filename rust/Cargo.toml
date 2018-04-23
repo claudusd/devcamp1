@@ -1,0 +1,6 @@
+[package]
+name = "import_csv"
+version = "0.1.0"
+authors = ["Claude Dioudonnat <claude@dioudonnat.fr>"]
+
+[dependencies]
