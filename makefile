@@ -34,4 +34,4 @@ fixtures: schema-create ## create some fixtures
 	@cat var/sql/fixtures.sql|docker exec -i isf_database psql -U $(ISF_DB) -d $(ISF_DB)
 
 docker-rust: ## build run
-	@docker-compose run --rm -w /usr/src/myapp rust cargo run
+	@docker-compose run --rm -w /usr/src/myapp rust cargo run --locked

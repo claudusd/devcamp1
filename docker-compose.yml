@@ -33,8 +33,9 @@ services:
       - .:/srv
   rust:
     container_name: isf_rust
-    image: rust:1.25.0-slim-jessie
+    image: rust:1.26-jessie
     depends_on:
       - database
     volumes:
       - ./rust:/usr/src/myapp
+      - /tmp/registry:/usr/local/cargo/registry
